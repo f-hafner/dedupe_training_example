@@ -37,7 +37,7 @@ FROM (
             FROM FieldsOfStudy
         ) AS d USING(FieldOfStudyId)
         WHERE FieldClass = 'main'
-            AND FieldOfStudyId = 162324750
+            AND FieldOfStudyId = 121332964
     ) AS e USING(AuthorId)
 ) AS f
 LEFT JOIN (
@@ -83,7 +83,7 @@ USING (GrantID)
 WHERE AWARD_TranType = 'grant' 
     AND AWARD_Agency = 'nsf' 
     AND a.AwardInstrument_Value IN ('standard grant', 'continuing grant')
-    AND a.Organization_Directorate_ShortName = 'SOCIAL, BEHAV & ECONOMIC SCIE'
+    AND a.Organization_Directorate_ShortName = 'MATHEMATICAL & PHYSICAL SCIEN'
     AND c.lastname != 'data not available'
     AND c.firstname IS NOT NULL 
 """
