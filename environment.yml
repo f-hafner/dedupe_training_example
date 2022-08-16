@@ -13,7 +13,7 @@ dependencies:
   - scipy
   - sqlite
   - pip:
-    - dedupe==2.0.13
+    - dedupe==2.0.14
 
 # NOTE: dedupe 2.0.13 and no constraint on python version does not work. fastcluster dependency...
 
