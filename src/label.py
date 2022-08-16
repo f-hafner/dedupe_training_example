@@ -1,7 +1,12 @@
+"""
+This script uses dedupe for labelling links between two data set.
+"""
 
 import pandas as pd
 import multiprocessing
 import dedupe
+import logging
+import optparse
 
 from src.helpers.utils import convert_to_tuple_of_tuples, convert_to_year_range
 from src.helpers.setup_linking import fields
@@ -9,15 +14,23 @@ from src.helpers.setup_linking import fields
 training_file = "data/training.json"
 settings_file = "data/settings"
 
-
-# TODO
-    # add logging from dedupe?
-    # is the year_range confusing: eg those that continue the career outside the us?
-    # fix the numpy warning??
-
-
 if __name__ == "__main__":
 
+    # ## Logging
+    optp = optparse.OptionParser()
+    optp.add_option('-v', '--verbose', dest='verbose', action='count',
+                    help='Increase verbosity (specify multiple times for more)'
+                    )
+    (opts, args) = optp.parse_args()
+    log_level = logging.WARNING
+    if opts.verbose:
+        if opts.verbose == 1:
+            log_level = logging.INFO
+        elif opts.verbose >= 2:
+            log_level = logging.DEBUG
+    logging.getLogger().setLevel(log_level)
+
+    # ## Prep data 
     print("Reading and preparing data", flush=True)
 
     d_mag = pd.read_csv("data/input_mag.csv", keep_default_na=False, na_values=["_"], dtype={"middlename": str})
@@ -31,7 +44,7 @@ if __name__ == "__main__":
         d["year_range"] = d.apply(lambda row: convert_to_year_range(row["year_range"]), axis="columns")
 
     # convert to dict for dedupe 
-    nsfdata = d_nsf.set_index("grantid_personpos").T.to_dict(orient="dict") # TODO: why is the .T necessary here but not below??
+    nsfdata = d_nsf.set_index("grantid_personpos").T.to_dict(orient="dict") # not sure .T is necessary here but not below.. 
     magdata = d_mag.set_index("AuthorId").to_dict(orient="index")
 
     for data in [nsfdata, magdata]:
@@ -40,8 +53,11 @@ if __name__ == "__main__":
             if middlename == "":
                 data[key]["middlename"] = None
 
+    # ## Training
     linker = dedupe.RecordLink(fields, num_cores = n_cores) 
-    linker.prepare_training(data_1=magdata, data_2=nsfdata)
+    linker.prepare_training(
+        data_1=magdata, data_2=nsfdata, blocked_proportion=0.9, sample_size=100_000
+        )
 
     print("Starting active labeling...", flush=True)
     dedupe.console_label(linker)

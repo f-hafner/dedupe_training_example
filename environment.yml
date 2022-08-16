@@ -1,19 +1,19 @@
-# install with  conda env create --prefix ./env --file environment.yaml 
 name: dedupe-training-example
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - ipython
   - ipykernel
-  - matplotlib
+  - ipython
   - nltk
   - numpy
   - pandas
   - pip
-  - pytest
   - python ==3.9
   - scipy
   - sqlite
   - pip:
-    - dedupe==2.0.11
+    - dedupe==2.0.13
+
+# NOTE: dedupe 2.0.13 and no constraint on python version does not work. fastcluster dependency...
+

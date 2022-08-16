@@ -37,7 +37,7 @@ FROM (
             FROM FieldsOfStudy
         ) AS d USING(FieldOfStudyId)
         WHERE FieldClass = 'main'
-            AND FieldOfStudyId = 121332964
+            AND FieldOfStudyId = 162324750
     ) AS e USING(AuthorId)
 ) AS f
 LEFT JOIN (
@@ -45,6 +45,7 @@ LEFT JOIN (
             , main_us_institutions_year
             , all_us_institutions_year
     FROM author_info_linking
+    WHERE main_us_institutions_year NOT LIKE '%chinese academy of sciences%' -- this seems like a bug in MAG
 ) AS g USING(AuthorId)
 WHERE length(f.firstname) > 1 
     AND f.firstname IS NOT NULL 
@@ -82,7 +83,7 @@ USING (GrantID)
 WHERE AWARD_TranType = 'grant' 
     AND AWARD_Agency = 'nsf' 
     AND a.AwardInstrument_Value IN ('standard grant', 'continuing grant')
-    AND a.Organization_Directorate_ShortName = 'MATHEMATICAL & PHYSICAL SCIEN'
+    AND a.Organization_Directorate_ShortName = 'SOCIAL, BEHAV & ECONOMIC SCIE'
     AND c.lastname != 'data not available'
     AND c.firstname IS NOT NULL 
 """
