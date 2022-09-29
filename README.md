@@ -43,6 +43,57 @@ Report the trials on labelling.
     - dedupe 2.0.14: 1 positive, 23 negative
     - dedupe 2.0.13: 17 positive, 23 negative
 - 29/09/22. Field: physics
-    - dedupe@main from github: 1 positive, 72 negative
+    - dedupe@main from github: 1 positive, 50 negative
 
 
+## Installing from github
+
+Installed dedupe from within the conda environment as follows:
+
+```bash
+python -m pip install "dedupe @ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc"
+```
+
+This was the output: 
+```bash
+Collecting dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc
+  Cloning https://github.com/dedupeio/dedupe (to revision 522e7b2147d61fa36d6dee6288df57aee95c4bcc) to /tmp/pip-install-s9gwll_e/dedupe_5b76234a1cc64a758529db20a7bfdd2e
+  Running command git clone --filter=blob:none --quiet https://github.com/dedupeio/dedupe /tmp/pip-install-s9gwll_e/dedupe_5b76234a1cc64a758529db20a7bfdd2e
+  Running command git rev-parse -q --verify 'sha^522e7b2147d61fa36d6dee6288df57aee95c4bcc'
+  Running command git fetch -q https://github.com/dedupeio/dedupe 522e7b2147d61fa36d6dee6288df57aee95c4bcc
+  Running command git checkout -q 522e7b2147d61fa36d6dee6288df57aee95c4bcc
+  Resolved https://github.com/dedupeio/dedupe to commit 522e7b2147d61fa36d6dee6288df57aee95c4bcc
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Requirement already satisfied: haversine>=0.4.1 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (2.7.0)
+Requirement already satisfied: highered>=0.2.0 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (0.2.1)
+Requirement already satisfied: doublemetaphone in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.1)
+Requirement already satisfied: numpy>=1.20 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.23.3)
+Requirement already satisfied: categorical-distance>=1.9 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.9)
+Requirement already satisfied: simplecosine>=1.2 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.2)
+Requirement already satisfied: typing-extensions in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (4.3.0)
+Requirement already satisfied: zope.index in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (5.2.1)
+Requirement already satisfied: Levenshtein-search==1.4.5 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.4.5)
+Requirement already satisfied: scikit-learn in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.1.2)
+Requirement already satisfied: BTrees>=4.1.4 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (4.10.1)
+Requirement already satisfied: dedupe-variable-datetime in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (0.1.5)
+Requirement already satisfied: affinegap>=1.3 in ./env/lib/python3.9/site-packages (from dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.12)
+Requirement already satisfied: zope.interface>=5.0.0 in ./env/lib/python3.9/site-packages (from BTrees>=4.1.4->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (5.4.0)
+Requirement already satisfied: persistent>=4.1.0 in ./env/lib/python3.9/site-packages (from BTrees>=4.1.4->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (4.9.1)
+Requirement already satisfied: pyhacrf-datamade>=0.2.0 in ./env/lib/python3.9/site-packages (from highered>=0.2.0->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (0.2.6)
+Requirement already satisfied: future in ./env/lib/python3.9/site-packages (from dedupe-variable-datetime->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (0.18.2)
+Requirement already satisfied: datetime-distance in ./env/lib/python3.9/site-packages (from dedupe-variable-datetime->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (0.1.3)
+Requirement already satisfied: threadpoolctl>=2.0.0 in ./env/lib/python3.9/site-packages (from scikit-learn->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (3.1.0)
+Requirement already satisfied: joblib>=1.0.0 in ./env/lib/python3.9/site-packages (from scikit-learn->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.2.0)
+Requirement already satisfied: scipy>=1.3.2 in ./env/lib/python3.9/site-packages (from scikit-learn->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.9.1)
+Requirement already satisfied: six in ./env/lib/python3.9/site-packages (from zope.index->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.16.0)
+Requirement already satisfied: setuptools in ./env/lib/python3.9/site-packages (from zope.index->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (65.4.0)
+Requirement already satisfied: cffi in ./env/lib/python3.9/site-packages (from persistent>=4.1.0->BTrees>=4.1.4->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (1.15.1)
+Requirement already satisfied: PyLBFGS>=0.1.3 in ./env/lib/python3.9/site-packages (from pyhacrf-datamade>=0.2.0->highered>=0.2.0->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (0.2.0.14)
+Requirement already satisfied: python-dateutil>=2.6.0 in ./env/lib/python3.9/site-packages (from datetime-distance->dedupe-variable-datetime->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (2.8.2)
+Requirement already satisfied: pycparser in ./env/lib/python3.9/site-packages (from cffi->persistent>=4.1.0->BTrees>=4.1.4->dedupe@ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc) (2.21)
+```
+
+
+But then, `conda list |grep dedupe` gives dedupe 2.0.18, from pypi...

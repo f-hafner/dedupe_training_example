@@ -12,8 +12,11 @@ dependencies:
   - python ==3.9
   - scipy
   - sqlite
-  - pip:
-    - git+https://github.com/dedupeio/dedupe.git
+  # - pip:
+  #   - git+https://github.com/dedupeio/dedupe.git
 
 # NOTE: dedupe 2.0.13 and no constraint on python version does not work. fastcluster dependency...
+
+
+# python -m pip install "dedupe @ git+https://github.com/dedupeio/dedupe@522e7b2147d61fa36d6dee6288df57aee95c4bcc"
 
