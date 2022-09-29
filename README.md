@@ -18,10 +18,12 @@ This works with a conda installation on Ubuntu 22:
 
 ```bash
 # create environment
-conda env create --prefix ./env --file environment.yml
+conda env create --prefix ./env --file environment.yml 
+# to use the github version of dedupe instead:
+# conda env create --prefix ./env --file environment_github.yml
 conda activate ./env
 # label records
-python src/label.py
+python -m src.label
 ```
 
 ## Details
@@ -40,5 +42,7 @@ Report the trials on labelling.
 - 16/08/22. Field: physics.
     - dedupe 2.0.14: 1 positive, 23 negative
     - dedupe 2.0.13: 17 positive, 23 negative
+- 29/09/22. Field: physics
+    - dedupe@main from github: 1 positive, 72 negative
 
 

@@ -1,0 +1,19 @@
+name: dedupe-training-example
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipykernel
+  - ipython
+  - nltk
+  - numpy
+  - pandas
+  - pip
+  - python ==3.9
+  - scipy
+  - sqlite
+  - pip:
+    - git+https://github.com/dedupeio/dedupe.git
+
+# NOTE: dedupe 2.0.13 and no constraint on python version does not work. fastcluster dependency...
+
